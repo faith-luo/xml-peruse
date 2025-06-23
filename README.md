@@ -1,2 +1,3 @@
-# peruse
-typed buffered parsing for js/ts
+# xml-peruse
+
+`xml-peruse` is a typed buffered XML parsing library written in typescript.
