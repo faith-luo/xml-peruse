@@ -81,3 +81,6 @@ const serializeEntry = (el: JME_Entry): JmdictEntry => {
 The key point here is that typescript recognizes that the key `sense` has to be associated with the `JME_Sense` struct.
 
 It's not a perfect schema - the best you can do right now is give a list of which keys correspond to which types of children in an element, and which attribute keys appear on which elements. You can't, for instance, specify that one of every child type must be available on the element (as in a fully-defined struct); the best we can do from a generalized XML perspective is understand the children as an array of `(Child_A | Child_B | Child_C)[]`. But it's much better than having no typing at all and having to parse raw JSON string keys, which is what many other parsing libraries resort to.
+
+## Known Issues / Future Work
+* Right now, xml-peruse is much slower than comparable libraries like fast-xml-parser. I think this is due to how I've implemented the string buffer as an array of strings. Most likely each one of them is incurring a dynamic memory allocation. I have a suspicion that if this is changed to use a direct byte array (C-style), it will be a lot faster.
